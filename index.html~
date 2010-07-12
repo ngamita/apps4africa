@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<title>App Engine Apps</title>
+		<link rel="stylesheet" type="text/css" href="css/main.css"/>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+	</head>
+	<body>
+
+	<div style="width: 100%;">
+		<div class="topLine">
+		
+		</div>
+	</div>
+
+<div style="clear: both;"/>	
+
+
+<table>
+  <tr>
+    
+
+      <th>Short description </th>
+      <th>Due Date</th>
+      <th>Long Description</th>
+      <th>URL</th>
+      <th>Created</th>
+      <th>Updated</th>
+      <th>Done</th>
+      <th>Send Email reminder</th>
+    </tr>
+
+{% for app in apps %}
+<tr> 
+<td>
+{{todo.shortDescription}}
+</td>
+<td>
+{{todo.dueDate}}
+</td>
+<td>
+{{todo.longDescription}}
+</td>
+<td>
+{{todo.created|date:"d.m.Y"}}
+</td>
+<td>
+{{todo.updated|date:"d.m.Y"}}
+</td>
+<td>
+<a class="done" href="/done?id={{todo.key.id}}" >Done</a>
+</td>
+<td>
+<a class="email" href="/email?id={{todo.key.id}}" >Email</a>
+</td>
+</tr> 
+{% endfor %}
+</table>
+
+
+
+<hr />
+
+
+
+<div class="headline">Add and App</div>
+
+<form action="/new" method="post">
+	<table>
+		<tr>
+			<td><label for="shortDescription">Summary</label></td>
+			<td><input type="text" name="shortDescription" id="shortDescriptions" size="80"/></td>
+		</tr>
+		<tr>
+			<td><label for="dueDate">Due Date</label></td>
+			<td><input type="dueDate" name="dueDate" id="dueDate"/></td>
+		</tr>
+		<tr>
+			<td valign="top"><label for="longDescription">Description</label></td>
+			<td><textarea rows="4" cols="80" name="longDescription" id="longDescription"></textarea></td>
+		</tr>
+		<tr>
+			<td><label for="url">URL</label></td>
+			<td><input type="text" name="url" id="url" size="80"/></td>
+		</tr>
+		<tr>
+			<td colspan="2" align="right"><input type="submit" value="Create"/></td>
+		</tr>
+	</table>
+</form>
+
+
+</body>
+</html>
+			
