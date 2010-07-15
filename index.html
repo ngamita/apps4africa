@@ -2,7 +2,7 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 	<head>
-		<title>App Engine Apps</title>
+		<title>Africa ! Show us your - App Engine Apps</title>
 		<link rel="stylesheet" type="text/css" href="css/main.css"/>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
 	</head>
@@ -17,52 +17,17 @@
 <div style="clear: both;"/>	
 
 
-<table>
-   <tr>
-    
-
-      <th>Names</th>
-      <th>App id</th>
-      <th>Description</th>
-      <th>Created</th>
-      <th>Size</th>
-  </tr>
-
-{% for todo in apps %}
-
-<!--
-<p>reached here </p>
-<tr> 
-<td>
-{{app.names}}
-</td>
-<td>
-{{app.app_id}}
-</td>
-<td>
-{{app.description}}
-</td>
-</td>
-<td>
-{{todo.created|date:"d.m.Y"}}
-</td>
-<td>
-{{app.size}}
-</td>
--->
-<p>test me </p>
-{% endfor %}
-</table>
-
 
 
 <hr />
 
 
+<div align="center">
 
-<div class="headline">Add and App</div>
+<div class="headline">Africa ! Show us your - App Engine App</div>
 
 <form action="/new" method="post">
+  
 	<table>
 		<tr>
 			<td><label for="names">Names</label></td>
@@ -86,13 +51,53 @@
 		</tr>
 		<tr>
 			<td><label for="size">Size(S,M,L,XL):</label></td>
-			<td><input type="text" name="size" id="size" size="80"/></td>
+			<td><input type="text" name="size" id="size" size="3"/></td>
 		</tr>
 		<tr>
 			<td colspan="2" align="right"><input type="submit" value="Show Your App"/></td>
 		</tr>
 	</table>
+ 
 </form>
+
+
+<table>
+   <tr>
+    
+
+      <th>Names</th>
+      <th>App id</th>
+      <th>Description</th>
+      <th>Created</th>
+      <th>Size</th>
+</tr>
+
+{% for app in apps %}
+<tr>
+
+<td>
+{{app.names}}
+</td>
+
+<td>
+{{app.app_name}}
+</td>
+<td>
+{{app.description}}
+</td>
+</td>
+<td>
+{{app.created|date:"d.m.Y"}}
+</td>
+<td>
+{{app.size}}
+</td>
+
+{% endfor %}
+</table>
+ </div>
+
+
 	
 
 

@@ -51,7 +51,7 @@ class MainPage(webapp.RequestHandler):
            
         #GQL or Google Query Language is like SQL 
         #BRB to change back to 50 ..
-        apps = db.GqlQuery("SELECT * FROM App4AfricaModel ORDER BY date DESC LIMIT 5")
+        apps = db.GqlQuery("SELECT * FROM App4AfricaModel ORDER BY created DESC LIMIT 40")
         
         
         template_values = {
